@@ -109,3 +109,34 @@ a.desc:after {
 .nav > li > form > button:hover {
     text-decoration: none;
 }
+
+.header-info {
+    background-color: #7e9497;
+    color: white;
+    padding: 5px 20px;
+}
+
+.header-info a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-info a:hover {
+    color: #121212;
+}
+
+.header-info .left li {
+    padding: 0 0 0 20px;
+}
+
+.header-info .left li:first-child {
+    padding: 0 0;
+}
+
+.header-info .right li {
+    padding: 0 20px 0 0;
+}
+
+.header-info .right li:last-child {
+    padding: 0 0;
+}

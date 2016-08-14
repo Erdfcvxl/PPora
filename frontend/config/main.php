@@ -13,7 +13,7 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
-            'csrfParam' => '_csrf-frontend',
+            'baseUrl' => '/',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -36,14 +36,21 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
+            'baseUrl' => '/',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-            ],
+
+            ]
         ],
-        */
+        'urlManagerBackend' => [
+            'class' => 'yii\web\urlManager',
+            'baseUrl' => '/backend/web',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+        ],
+
     ],
     'params' => $params,
 ];

@@ -9,6 +9,9 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+use kartik\icons\Icon;
+
+Icon::map($this);
 
 AppAsset::register($this);
 ?>
@@ -25,22 +28,22 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
+<div class="wrap" style="padding-top: 50px">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
+        'brandLabel' => 'Paskutinė pora',
+        'brandUrl' => ['/site/index'],
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar-default navbar-fixed-top',
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
+        ['label' => 'Vyrams', 'url' => ['/site/index']],
+        ['label' => 'Moterims', 'url' => ['/site/about']],
+        ['label' => 'Kontaktai', 'url' => ['/site/contact']],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
+        $menuItems[] = ['label' => 'Registruotis', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
         $menuItems[] = '<li>'
@@ -59,13 +62,36 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
+    <div class="header-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-xs-6 left">
+                    <ul class="list-unstyled list-inline" style="margin-bottom: 0px;">
+                        <li><a target="_blank" href="https://www.facebook.com/Paskutin%C4%97-pora-324261617964312/?__mref=message_bubble"><?= Icon::show('facebook'); ?></a></li>
+                        <li><a target="_blank" href="#"><?= Icon::show('instagram'); ?></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-hidden-xs"></div>
+                <div class="col-md-4 col-xs-6 right" style="text-align: right;">
+                    <ul class="list-unstyled list-inline" style="margin-bottom: 0px;">
+                        <li><a target="_blank" href="#"><?= Icon::show('shopping-basket'); ?>Krepšelis</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?= $content ?>
+
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
-        <?= $content ?>
+
     </div>
+
+
 </div>
 
 <footer class="footer">
